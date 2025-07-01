@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../static/main.css">
+      <title>投票アプリ</title>
+</head>
+<body>
+      <div class="main">
+            <h1>ホーム</h1>
+            <ul>
+                  {% for form in forms %}
+                        <li>
+                              <a href="/question?form_id={{form.id}}" class="index_a">{{ form.tatle }} </a>
+                              
+                        </li>
+                  {% endfor %}
+            </ul>
+            
+            <form action="/new" method="GET">
+                  <button class="index_button">投票ページを作成</button>
+            </form>
+            
+      </div>
+</body>
+</html>

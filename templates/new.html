@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../static/main.css">
+      <title>投票アプリ</title>
+</head>
+<body>
+      <div class="main">
+            <h1>作成</h1> 
+            <form action="/create" method="POST">
+                  <div class="text"><p>投票タイトル:</p>
+                   <input type="text" name="title" required class="title_input"></input>
+                  </div>
+                  
+                  <div class="text"><p>選択肢：</p></div>
+                  <div id="choices_id">
+                        <p><input type="text" name="choices" required class="input"></input></p>
+                        <p><input type="text" name="choices" required class="input"></input></p>
+                  </div>
+                  
+
+                  <button type="button" onclick="create_choices()" class="cute_button">選択肢を増やす</button>
+                  <button type="button" onclick="remove_choices()" class="cute_button">選択肢を消す</button>
+                  <p><input type="submit" class="create_choices" value="投票ページを作成する"></p>
+                  
+            </form> 
+            <form action="/back" method="POST">
+                  <button  class="back">戻る</button> 
+            </form>
+      </div>   
+
+
+      <script>
+            let choices_id=document.getElementById("choices_id")
+            function create_choices() {
+                  if(choices_id.children.length >=6){
+                        window.alert("選択肢は６個までです")
+                        return
+                  }
+                  else{
+                        
+                        let p=document.createElement("p")
+                        let input=document.createElement("input")
+                        input.setAttribute("type","text")
+                        input.setAttribute("name","choices")
+                        input.setAttribute("required",true)
+                        input.setAttribute("class","input")
+                        p.appendChild(input)
+                        choices_id.appendChild(p)
+                  }
+                  
+            }
+            function remove_choices(){
+                  let last_choices = choices_id.lastElementChild
+                  if(choices_id.children.length >2){
+                        last_choices.remove()
+                  }
+                  else{
+                        window.alert("これ以上消すことはできません")
+                  }
+            }
+      </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body{
+      background-color: #01bbcc;
+
+}
+
+ul{
+      list-style:  none;
+}
+
+h1{
+      color:  #96514d;
+      border-bottom: 3px solid;
+      padding-bottom: 5px;              
+      margin-bottom: 20px;              
+}
+
+
+/* index.html */
+.index_a { 
+      color:#96514d;       
+      text-decoration: none; 
+      font-size: 23px;
+      letter-spacing: 0.5px;
+      transition: all 0.5s ease;  
+}
+
+.index_a:hover {
+      font-size: 1.7em;   
+     
+}
+
+.index_button{
+      font-size: 18px;       
+      padding: 12px 24px;
+      border-radius: 30px;   
+      background-color: #726567; 
+      color: white;         
+      border: none; 
+}
+
+
+.main{
+      margin-right: auto;
+      background-color:#dcd3b2;
+      width: 30%;
+      margin-left: auto;
+      padding:20px
+      
+}
+/* new.htmlの部分 */
+.text{
+      font-size: 20px;
+      color: #bb5535;
+}
+.text p{
+      margin-bottom: 4px;
+}
+.title_input{
+      width: 65%;
+      font-size: 25px;
+}
+.input{
+      width: 80%;
+      font-size: 20px;
+}
+.cute_button{
+      font-size: 20px;
+      border-radius: 15px;
+      padding:15px 20px;
+      background-color: #726567;
+      color: white;
+      margin-top: 4px;
+}
+
+.create_choices{
+      font-size: 20px;
+      border-radius: 15px;
+      padding:15px 20px;
+      background-color: #96514d;
+      color: white;
+      
+}
+
+/* question.html */
+.bar {
+      display: flex;
+      align-items: center;
+}
+
+.bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;       /* グラフ同士の間 */      
+      margin-top: 50px;
+      width:790px;
+      margin-left: auto;
+      margin-right: auto;
+     
+}
+
+.bar_choices {
+      font-size: 23px;
+      margin-right: 10px;
+      color: white;
+      width: 150px;
+      flex-shrink: 0;
+      text-align: left; 
+}
+
+.bar-fill {
+      height: 50px;
+      background-color: red;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+}
+
+/* 選択肢ボタン */
+.question_button{
+      font-size: 20px;
+      border-radius: 15px;
+      padding:15px 15px;
+      margin: 8px;
+      background-color: #726567;
+      color: white;
+      width: 200px;
+}
+
+.label{
+      font-size: 23px;
+      margin-left: 30px;
+}
+
+.back{
+      font-size: 20px;
+      border-radius: 30px;
+}

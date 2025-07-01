@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../static/main.css">
+      <title>投票アプリ</title>
+</head>
+<body>
+      <div class="main">
+      
+            <h1>{{form.tatle}}</h1>
+            <ul>
+                  <!-- {と％の間には空白を開けてはいけない -->
+                  {% for vote in votes %}
+                        <li>
+                              <form action ="/vote" method ="POST">
+                                    <!-- /voteをPOST methodにする -->
+                                    <input type="hidden" name="vote_id" value="{{ vote.id }}">
+                                    <!-- type="hidden"は見えずに情報を送る,name="vote_id"は"vote_id"という名前のデータを送る、 value="{{ vote.id }}"はnameの中身 -->
+                                    <button class="question_button" type="submit">{{ vote.choices }}</button>
+                                    <label class="label">{{ vote.votes }}</label>
+                                    <!-- <img src="/static/gorira1.jpg" alt=""> -->
+                              </form>
+                        </li>
+                  {% endfor %}
+            </ul>
+
+            <form action ="/back" method = "POST">
+                  <button class="back">戻る</button>
+            </form>
+            
+      </div>
+
+      <div class="bar-chart">
+            {% for vote in votes %}
+                  <div class="bar">
+                        <div class="bar_choices">{{ vote.choices }}</div>
+                        <div class="bar-fill" style="width: calc({{ vote.votes }} * 10px);">
+                         {{ vote.votes }}
+                         <!-- {{ vote.choices}} -->
+                        </div>
+                        
+                  </div>
+            {% endfor %}
+      </div>
+      
+</body>
+</html>
