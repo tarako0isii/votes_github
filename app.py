@@ -1,16 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
 import psycopg2.extras
+import os
 #  reques, 
 
 app = Flask(__name__)
 
-import os
-
 def get_db():
     db_url = os.environ.get('DATABASE_URL')
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
     con = psycopg2.connect(db_url)
     return con
+
 
 
 
