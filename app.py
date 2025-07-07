@@ -7,17 +7,17 @@ import os
 app = Flask(__name__)
 
 
-db_url = os.environ.get('DATABASE_URL')
-if db_url.startswith("postgres://"):
-      db_url = db_url.replace("postgres://", "postgresql://", 1)
-con = psycopg2.connect(db_url)
+# db_url = os.environ.get('DATABASE_URL')
+# if db_url.startswith("postgres://"):
+#       db_url = db_url.replace("postgres://", "postgresql://", 1)
+# con = psycopg2.connect(db_url)
 
 # データベース接続
 def get_db():
     # PostgreSQLデータベースに接続
     con = psycopg2.connect(
-        host="localhost",
-        database="votes",
+        host=os.environ.get('DATABASE_URL'),
+        database="kouga_db",
         user="postgres",
         password="postgres",  # 実際のパスワードに置き換えてください
         port=5432
