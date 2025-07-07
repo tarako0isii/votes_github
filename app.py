@@ -13,14 +13,25 @@ app = Flask(__name__)
 # con = psycopg2.connect(db_url)
 
 # データベース接続
+# def get_db():
+#     # PostgreSQLデータベースに接続
+#     con = psycopg2.connect(
+#         host=os.environ.get('DATABASE_URL'),
+#         database="kouga_db",
+#         user="postgres",
+#         password="postgres",  # 実際のパスワードに置き換えてください
+#         port=5432
+#     )
+#     return con
+
+
 def get_db():
-    # PostgreSQLデータベースに接続
     con = psycopg2.connect(
-        host=os.environ.get('DATABASE_URL'),
-        database="kouga_db",
-        user="postgres",
-        password="postgres",  # 実際のパスワードに置き換えてください
-        port=5432
+        host=os.environ.get('DB_HOST'),
+        database=os.environ.get('DB_NAME'),
+        user=os.environ.get('DB_USER'),
+        password=os.environ.get('DB_PASS'),
+        port=os.environ.get('DB_PORT', 5432)
     )
     return con
 
