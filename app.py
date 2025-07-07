@@ -5,15 +5,13 @@ import psycopg2.extras
 
 app = Flask(__name__)
 
+import os
+
 def get_db():
-      con = psycopg2.connect(
-            host="localhost",
-            database="votes",
-            user="postgres",
-            password="postgres", 
-            port=5432
-      )
-      return con
+    db_url = os.environ.get('DATABASE_URL')
+    con = psycopg2.connect(db_url)
+    return con
+
 
 
 @app.route ('/', methods= ['GET'])
