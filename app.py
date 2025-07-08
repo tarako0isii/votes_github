@@ -7,10 +7,7 @@ import os
 app = Flask(__name__)
 
 
-# db_url = os.environ.get('DATABASE_URL')
-# if db_url.startswith("postgres://"):
-#       db_url = db_url.replace("postgres://", "postgresql://", 1)
-# con = psycopg2.connect(db_url)
+db_url = os.environ.get('DATABASE_URL')
 
 # データベース接続
 # def get_db():
@@ -26,14 +23,16 @@ app = Flask(__name__)
 
 
 def get_db():
-    con = psycopg2.connect(
-        host=os.environ.get('DB_HOST'),
-        database=os.environ.get('DB_NAME'),
-        user=os.environ.get('DB_USER'),
-        password=os.environ.get('DB_PASS'),
-        port=os.environ.get('DB_PORT', 5432)
-    )
-    return con
+      con = psycopg2.connect(db_url, sslmode='require')
+      return con
+#     con = psycopg2.connect(
+#         host=os.environ.get('DB_HOST'),
+#         database=os.environ.get('DB_NAME'),
+#         user=os.environ.get('DB_USER'),
+#         password=os.environ.get('DB_PASS'),
+#         port=os.environ.get('DB_PORT', 5432)
+#     )
+
 
 
 
